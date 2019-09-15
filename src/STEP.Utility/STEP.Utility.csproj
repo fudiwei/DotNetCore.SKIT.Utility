@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard1.6; netstandard2.0; net35; net45;</TargetFrameworks>
+        <TieredCompilation>true</TieredCompilation>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>STEP.Utility</PackageId>
+        <Version>1.0.0</Version>
+        <Description>A collection of common tools.</Description>
+        <Authors>Fu Diwei</Authors>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'net35' Or '$(TargetFramework)' == 'net45'">
+        <Reference Include="System.Web" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.6' Or '$(TargetFramework)' == 'netstandard2.0'">
+        <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" />
+    </ItemGroup>
+
+</Project>
