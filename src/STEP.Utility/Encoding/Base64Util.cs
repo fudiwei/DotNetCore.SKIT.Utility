@@ -9,9 +9,9 @@ namespace STEP.Utility
     public static class Base64Util
     {
         /// <summary>
-        /// <seealso cref="System.Convert.ToBase64String(string)"/>
+        /// 将字节数组进行 Base64 编码。
         /// </summary>
-        /// <param name="bytes"></param>
+        /// <param name="bytes">待编码数据的字节数组。</param>
         /// <param name="urlSafe">是否符合 RFC-4648 以适用于 URL 安全（默认值 false）。</param>
         /// <returns></returns>
         public static string ToBase64String(byte[] bytes, bool urlSafe = false)
@@ -28,11 +28,11 @@ namespace STEP.Utility
 
             return result;
         }
-        
+
         /// <summary>
-        /// <seealso cref="System.Convert.FromBase64String(string)"/>
+        /// 将字符串进行 Base64 解码。
         /// </summary>
-        /// <param name="encodedText"></param>
+        /// <param name="encodedText">待解码的字符串。</param>
         /// <returns></returns>
         public static byte[] FromBase64String(string encodedText)
         {

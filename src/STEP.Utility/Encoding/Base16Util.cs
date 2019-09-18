@@ -14,7 +14,7 @@ namespace STEP.Utility
         /// </summary>
         /// <param name="bytes">待编码数据的字节数组。</param>
         /// <returns></returns>
-        public static string ToBase16String(byte[] bytes, bool addPadding = true)
+        public static string ToBase16String(byte[] bytes)
         {
             if (bytes == null || bytes.Length == 0)
                 return string.Empty;
