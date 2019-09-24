@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Text;
-#if !NETSTANDARD1_6
-using System.Web;
-#endif
 
 namespace STEP.Utility
 {
@@ -54,7 +51,7 @@ namespace STEP.Utility
         public static string Decode(string encodedText)
         {
 #if !NETSTANDARD1_6
-            return HttpUtility.UrlDecode(encodedText);
+            return System.Web.HttpUtility.UrlDecode(encodedText);
 #else
             return Uri.UnescapeDataString(encodedText);
 #endif

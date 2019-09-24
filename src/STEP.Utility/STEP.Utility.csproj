@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard1.6; netstandard2.0; net35; net45;</TargetFrameworks>
+        <TargetFrameworks>netstandard1.6; netstandard2.0; netstandard2.1; net35; net45;</TargetFrameworks>
         <TieredCompilation>true</TieredCompilation>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
@@ -18,8 +18,8 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.6' Or '$(TargetFramework)' == 'netstandard2.0'">
-        <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" />
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.6' Or '$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'netstandard2.1'">
+        <PackageReference Include="System.Text.Encoding.CodePages" Version="4.6.0" />
     </ItemGroup>
 
 </Project>

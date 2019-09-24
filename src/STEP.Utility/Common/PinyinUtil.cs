@@ -1,5 +1,4 @@
-﻿#if !NETSTANDARD1_6
-using System;
+﻿using System;
 using System.Text;
 
 namespace STEP.Utility
@@ -9,14 +8,13 @@ namespace STEP.Utility
     /// </summary>
     public static class PinyinUtil
     {
-#if NETSTANDARD2_0
+#if NETSTANDARD
         static PinyinUtil()
         {
-            Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         }
 #endif
 
-#region Consts
         private static readonly int[] pyValue = new int[]
         {
             -20319, -20317, -20304, -20295, -20292, -20283, -20265, -20257, -20242,
@@ -517,9 +515,7 @@ namespace STEP.Utility
         /// GB2312-80 标准规范中最后一个一级汉字（即“座”）的机内码。
         /// </summary>
         private const int lastOfOneLevelChCode = -10247;
-#endregion
 
-#region Methods
         /// <summary>
         /// 获取指定字符的拼音首字母（大写）。
         /// </summary>        
@@ -657,7 +653,5 @@ namespace STEP.Utility
 
             return builder.ToString();
         }
-#endregion
     }
 }
-#endif

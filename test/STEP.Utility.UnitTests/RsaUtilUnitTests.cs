@@ -5,6 +5,7 @@ using Xunit;
 
 namespace STEP.Utility.UnitTests
 {
+#if !NETFRAMEWORK
     public class RsaUtilUnitTests
     {
         const string STR_EN = "hello, world.";
@@ -129,4 +130,5 @@ namespace STEP.Utility.UnitTests
             Assert.True(RsaUtil.Verify(STR_CH, sign, RSA_PUBLIC_KEY_2048));
         }
     }
+#endif
 }
