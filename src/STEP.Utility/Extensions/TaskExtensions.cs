@@ -1,4 +1,4 @@
-﻿#if NET45 || NETSTANDARD
+﻿#if !NET35
 
 namespace System.Threading.Tasks
 {
