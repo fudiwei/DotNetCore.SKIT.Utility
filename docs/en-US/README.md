@@ -10,6 +10,7 @@ It is designed to work with .NET Core and .NET Framework both, and it targets .N
 * Extension methods of **System.DateTime** / **System.DateTimeOffset**.
 * Extension methods of **System.Uri**.
 * Extension methods of **System.IO.Stream**.
+* Extension methods of **System.Linq**.
 * Extension methods of **System.Threading.Tasks.Task**.
 * Common regular expressions.
 * A validator for PRC ID card.

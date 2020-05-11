@@ -10,6 +10,7 @@
 * 扩展了几个 **System.DateTime** / **System.DateTimeOffset** 的方法。
 * 扩展了几个 **System.Uri** 的方法。
 * 扩展了几个 **System.IO.Stream** 的方法。
+* 扩展了几个 **System.Linq** 的方法。
 * 扩展了几个 **System.Threading.Tasks.Task** 的方法。
 * 提供了一些常见的正则表达式。
 * 提供了一个中国居民身份证号验证工具。
