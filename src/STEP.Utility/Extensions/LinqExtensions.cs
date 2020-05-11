@@ -55,5 +55,51 @@ namespace System.Linq
 
             return source.GroupBy(keySelector).Select(e => e.First());
         }
+
+        /// <summary>
+        /// 返回序列中的随机一个元素；如果不存在任一元素，则返回默认值。
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="source">要从中返回元素的序列。</param>
+        /// <returns></returns>
+        public static TSource RandomOrDefault<TSource>(this IEnumerable<TSource> source)
+        {
+            return RandomOrDefault(source, (e) => true);
+        }
+
+        /// <summary>
+        /// 返回序列中满足条件的随机一个元素；如果不存在任一元素，则返回默认值。
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="source">要从中返回元素的序列。</param>
+        /// <param name="predicate">用于测试每个元素是否满足条件的函数。</param>
+        /// <returns></returns>
+        public static TSource RandomOrDefault<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+        {
+            return source.Where(predicate).OrderBy(e => Guid.NewGuid()).FirstOrDefault();
+        }
+
+        /// <summary>
+        /// 返回序列中的随机一个元素；如果不存在任一元素，则抛出 <see cref="InvalidOperationException"/> 异常。
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="source">要从中返回元素的序列。</param>
+        /// <returns></returns>
+        public static TSource Random<TSource>(this IEnumerable<TSource> source)
+        {
+            return Random(source, (e) => true);
+        }
+
+        /// <summary>
+        /// 返回序列中满足条件的随机一个元素；如果不存在任一元素，则抛出 <see cref="InvalidOperationException"/> 异常。
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="source">要从中返回元素的序列。</param>
+        /// <param name="predicate">用于测试每个元素是否满足条件的函数。</param>
+        /// <returns></returns>
+        public static TSource Random<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+        {
+            return source.Where(predicate).OrderBy(e => Guid.NewGuid()).First();
+        }
     }
 }
