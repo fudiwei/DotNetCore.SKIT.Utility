@@ -102,5 +102,86 @@ namespace STEP.Utility
         {
             return Decode(encodedText, Encoding.UTF8);
         }
+
+        /// <summary>
+        /// 尝试将字符串进行 Base64 解码。
+        /// </summary>
+        /// <param name="encodedText">待解码的字符串。</param>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static bool TryFromBase64String(string encodedText, out byte[] data)
+        {
+            data = null;
+
+            int len = encodedText.Length;
+            if (len % 4 == 0) // 必须能被 4 整除
+            {
+                bool hasEqualOpe = false;
+
+                for (int i = 0; i < len; i++)
+                {
+                    char c = encodedText[i];
+
+                    if ((c >= 'a' && c <= 'z') ||
+                        (c >= 'A' && c <= 'Z') ||
+                        (c >= '0' && c <= '9') ||
+                        c == '+' ||
+                        c == '/') // 只能由大小写字母、阿拉伯数字、+、/、= 组成
+                    {
+                        if (hasEqualOpe)
+                        {
+                            return false;
+                        }
+                    }
+                    else if (c == '=') // 等号只能在结尾
+                    {
+                        hasEqualOpe = true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+            data = FromBase64String(encodedText);
+            return true;
+        }
+
+        /// <summary>
+        /// 尝试将字符串进行基于 UTF-8 的 Base64 解码。
+        /// </summary>
+        /// <param name="encodedText">待解码的字符串。</param>
+        /// <param name="encoding"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static bool TryDecode(string encodedText, Encoding encoding, out string text)
+        {
+            Guard.CheckArgumentNotNull(encoding, nameof(encoding));
+
+            if (TryFromBase64String(encodedText, out byte[] data))
+            {
+                text = encoding.GetString(data);
+                return true;
+            }
+
+            text = null;
+            return false;
+        }
+
+        /// <summary>
+        /// 尝试将字符串进行基于指定字符集的 Base64 解码。
+        /// </summary>
+        /// <param name="encodedText">待解码的字符串。</param>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static bool TryDecode(string encodedText, out string text)
+        {
+            return TryDecode(encodedText, Encoding.UTF8, out text);
+        }
     }
 }
