@@ -2,7 +2,7 @@
 
 开发常用工具集合。
 
-本库以 .NET Standard 为目标平台，可同时支持 .NET Core 和 .NET Framework。
+本库以 .NET Standard / .NET 5 为目标平台，可同时支持 .NET Core 和 .NET Framework。
 
 ## 特性
 
