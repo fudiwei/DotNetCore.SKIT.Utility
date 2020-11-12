@@ -50,10 +50,10 @@ namespace STEP.Utility
         /// <returns></returns>
         public static string Decode(string encodedText)
         {
-#if !NETSTANDARD1_6
-            return System.Web.HttpUtility.UrlDecode(encodedText);
-#else
+#if NETSTANDARD1_6
             return Uri.UnescapeDataString(encodedText);
+#else
+            return System.Web.HttpUtility.UrlDecode(encodedText);
 #endif
         }
     }

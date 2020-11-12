@@ -76,10 +76,10 @@ namespace STEP.Utility
                 sum += int.Parse(Wi[i]) * int.Parse(Ai[i].ToString());
             }
             int y = -1;
-#if !NETSTANDARD1_6
-            Math.DivRem(sum, 11, out y);
-#else
+#if NETSTANDARD1_6
             y = sum % 11;
+#else
+            Math.DivRem(sum, 11, out y);
 #endif
             if (arrVarifyCode[y] != value.Substring(17, 1).ToLower())
             {

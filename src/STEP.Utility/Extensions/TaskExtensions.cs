@@ -1,12 +1,11 @@
-﻿#if !NET35
-
-namespace System.Threading.Tasks
+﻿namespace System.Threading.Tasks
 {
     /// <summary>
     /// 
     /// </summary>
     public static class TaskExtensions
     {
+#if !NET35
         /// <summary>
         /// 
         /// </summary>
@@ -28,7 +27,6 @@ namespace System.Threading.Tasks
         {
             return task.ConfigureAwait(continueOnCapturedContext).GetAwaiter().GetResult();
         }
+#endif
     }
 }
-
-#endif

@@ -15,10 +15,10 @@ namespace STEP.Utility
         /// <returns></returns>
         public static bool IsNullOrDBNull(object obj)
         {
-#if !NETSTANDARD1_6
-            return (obj == null || Convert.IsDBNull(obj));
-#else
+#if NETSTANDARD1_6
             return obj == null;
+#else
+            return (obj == null || Convert.IsDBNull(obj));
 #endif
         }
 
@@ -110,17 +110,17 @@ namespace STEP.Utility
                 return Convert.ChangeType(value, nullableType, provider);
             }
 
-#if !NETSTANDARD1_6
-            if (typeof(Enum).IsAssignableFrom(conversionType))
-            {
-                return Enum.Parse(conversionType, value.ToString());
-            }
-#else
+#if NETSTANDARD1_6
             try
             {
                 return Enum.Parse(conversionType, value.ToString());
             }
-            catch (ArgumentException) {}
+            catch (ArgumentException) { }
+#else
+            if (typeof(Enum).IsAssignableFrom(conversionType))
+            {
+                return Enum.Parse(conversionType, value.ToString());
+            }
 #endif
 
             return Convert.ChangeType(value, conversionType, provider);

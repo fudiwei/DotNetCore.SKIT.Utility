@@ -57,10 +57,10 @@ namespace STEP.Utility
         /// <returns></returns>
         public static DateTime FromUnixTimeSeconds(long timeStamp)
         {
-#if NETSTANDARD
-            return DateTimeOffset.FromUnixTimeSeconds(timeStamp).LocalDateTime;
-#else
+#if NETFRAMEWORK
             return DateTimeOffsetUtil.FromUnixTimeSeconds(timeStamp).LocalDateTime;
+#else
+            return DateTimeOffset.FromUnixTimeSeconds(timeStamp).LocalDateTime;
 #endif
         }
 
@@ -71,10 +71,10 @@ namespace STEP.Utility
         /// <returns></returns>
         public static DateTime FromUnixTimeMilliseconds(long timeStamp)
         {
-#if NETSTANDARD
-            return DateTimeOffset.FromUnixTimeMilliseconds(timeStamp).LocalDateTime;
-#else
+#if NETFRAMEWORK
             return DateTimeOffsetUtil.FromUnixTimeMilliseconds(timeStamp).LocalDateTime;
+#else
+            return DateTimeOffset.FromUnixTimeMilliseconds(timeStamp).LocalDateTime;
 #endif
         }
 

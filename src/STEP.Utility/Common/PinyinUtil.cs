@@ -8,7 +8,7 @@ namespace STEP.Utility
     /// </summary>
     public static class PinyinUtil
     {
-#if NETSTANDARD
+#if !NETFRAMEWORK
         static PinyinUtil()
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);

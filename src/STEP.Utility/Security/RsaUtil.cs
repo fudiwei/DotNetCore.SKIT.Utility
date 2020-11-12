@@ -4,9 +4,9 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-#if NETSTANDARD
 namespace STEP.Utility
 {
+#if !NETFRAMEWORK
     /// <summary>
     /// RSA 加密算法（RSA Algorithm）工具类。
     /// </summary>
@@ -555,5 +555,5 @@ namespace STEP.Utility
         }
         #endregion
     }
-}
 #endif
+}

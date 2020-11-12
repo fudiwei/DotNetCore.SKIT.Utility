@@ -1,5 +1,4 @@
-﻿#if !NETSTANDARD
-using STEP.Utility;
+﻿using STEP.Utility;
 
 namespace System
 {
@@ -8,6 +7,7 @@ namespace System
     /// </summary>
     public static class DateTimeOffsetExtensions
     {
+#if NETFRAMEWORK
         /// <summary>
         /// 获取当前时间的 Unix 时间戳（秒）。
         /// </summary>
@@ -49,6 +49,6 @@ namespace System
         {
             return DateTimeOffsetUtil.FromUnixTimeMilliseconds(timestamp);
         }
+#endif
     }
 }
-#endif
