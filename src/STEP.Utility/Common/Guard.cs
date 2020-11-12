@@ -59,7 +59,7 @@ namespace STEP.Utility
         /// 
         /// </summary>
         /// <param name="argumentValue"></param>
-        public static void CheckArgumentNotNullOrEmpty(Guid argumentValue)
+        public static void CheckArgumentNotNullOrEmpty(Guid? argumentValue)
         {
             if (argumentValue == null || argumentValue == Guid.Empty)
                 throw new ArgumentException(EXMSG_GUID_IS_NULL_OR_EMPTY);
@@ -70,7 +70,7 @@ namespace STEP.Utility
         /// </summary>
         /// <param name="argumentValue"></param>
         /// <param name="argumentName"></param>
-        public static void CheckArgumentNotNullOrEmpty(Guid argumentValue, string argumentName)
+        public static void CheckArgumentNotNullOrEmpty(Guid? argumentValue, string argumentName)
         {
             if (argumentValue == null || argumentValue == Guid.Empty)
                 throw new ArgumentException(EXMSG_GUID_IS_NULL_OR_EMPTY, argumentName);
