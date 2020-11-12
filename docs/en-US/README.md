@@ -2,7 +2,7 @@
 
 A collection of common tools.
 
-It is designed to work with .NET Core and .NET Framework both, and it targets .NET Standard / .NET 5.
+It is designed to work with .NET Core and .NET Framework both, and it targets .NET Standard.
 
 ## Features
 
