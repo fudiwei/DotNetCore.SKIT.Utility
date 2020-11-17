@@ -32,7 +32,6 @@ namespace System.Linq
         /// <param name="minCount">最少应有的数量。</param>
         /// <returns></returns>
         public static bool AtLeast<TSource>(this IEnumerable<TSource> source, int minCount)
-            where TSource : class
         {
             Guard.CheckArgumentNotNull(source, nameof(source));
 
@@ -62,11 +61,10 @@ namespace System.Linq
         /// <param name="maxCount">最多应有的数量。</param>
         /// <returns></returns>
         public static bool AtMost<TSource>(this IEnumerable<TSource> source, int maxCount)
-            where TSource : class
         {
             Guard.CheckArgumentNotNull(source, nameof(source));
 
-            return source.Count() >= maxCount;
+            return source.Count() <= maxCount;
         }
 
         /// <summary>
@@ -77,7 +75,6 @@ namespace System.Linq
         /// <param name="maxCount">最多应有的数量。</param>
         /// <returns></returns>
         public static bool AtMost<TSource>(this IEnumerable<TSource> source, long maxCount)
-            where TSource : class
         {
             Guard.CheckArgumentNotNull(source, nameof(source));
 
