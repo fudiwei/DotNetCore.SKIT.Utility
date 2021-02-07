@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard1.6; netstandard2.0; netstandard2.1; net35; net45; net5.0</TargetFrameworks>
+        <TieredCompilation>true</TieredCompilation>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>SKIT.Utility</PackageId>
+        <Version>1.0.0</Version>
+        <Description>A collection of common tools.</Description>
+        <Authors>Fu Diwei</Authors>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'net35' Or '$(TargetFramework)' == 'net45'">
+        <Reference Include="System.Web" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.6' Or '$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'netstandard2.1'">
+        <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.1" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+        <PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />
+    </ItemGroup>
+
+</Project>

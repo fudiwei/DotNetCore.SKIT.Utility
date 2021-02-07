@@ -1,4 +1,4 @@
-# STEP.Utility
+# SKIT.Utility
 
 A collection of common tools.
 
